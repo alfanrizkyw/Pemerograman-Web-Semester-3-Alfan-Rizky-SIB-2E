@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMPUS-Mini | Tambah Anggota</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="../index.html" class="brand">SIMPUS-Mini</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">&#9776;</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="../buku/list.html">Daftar Buku</a></li>
+      <li><a href="../buku/tambah.html">Tambah Buku</a></li>
+      <li><a href="list.html">Daftar Anggota</a></li>
+      <li><a href="tambah.html" class="active">Tambah Anggota</a></li>
+      <li id="navAuthItem"><a href="../auth/login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Tambah Anggota</h1>
+
+  <form class="form-box" id="formTambahAnggota" novalidate>
+    <div class="form-group">
+      <label for="nama">Nama</label>
+      <input type="text" id="nama" name="nama">
+    </div>
+    <div class="form-group">
+      <label for="no_anggota">No. Anggota</label>
+      <input type="text" id="no_anggota" name="no_anggota">
+    </div>
+    <div class="form-group">
+      <label for="alamat">Alamat</label>
+      <input type="text" id="alamat" name="alamat">
+    </div>
+    <div class="form-group">
+      <label for="no_hp">No. HP</label>
+      <input type="text" id="no_hp" name="no_hp">
+    </div>
+    <button type="submit">Simpan</button>
+  </form>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 SIMPUS-Mini
+</footer>
+
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

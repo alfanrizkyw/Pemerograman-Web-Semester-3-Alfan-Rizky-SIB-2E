@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMPUS-Mini | Daftar Buku</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="../index.html" class="brand">SIMPUS-Mini</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">&#9776;</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="list.html" class="active">Daftar Buku</a></li>
+      <li><a href="tambah.html">Tambah Buku</a></li>
+      <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+      <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
+      <li id="navAuthItem"><a href="../auth/login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Daftar Buku</h1>
+
+  <!-- Jobsheet 5: pencarian real-time -->
+  <div class="search-bar">
+    <input type="text" id="searchBuku" placeholder="Cari judul buku...">
+  </div>
+
+  <!-- Jobsheet 6: status loading / error -->
+  <div id="statusBuku"></div>
+
+  <div class="table-wrapper">
+    <table class="data-table" id="tabelBuku">
+      <thead>
+        <tr>
+          <th>Judul</th>
+          <th>Pengarang</th>
+          <th>Tahun</th>
+          <th>Stok</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <!-- tbody dikosongkan: diisi dinamis lewat fetch() di app.js (Jobsheet 6) -->
+      <tbody id="tbodyBuku"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 SIMPUS-Mini
+</footer>
+
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

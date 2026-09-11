@@ -1,0 +1,12 @@
+[
+  { "id": 1, "judul": "Belajar PHP untuk Pemula", "pengarang": "Andi Wijaya", "tahun": 2021, "stok": 4 },
+  { "id": 2, "judul": "Dasar-Dasar PostgreSQL", "pengarang": "Siti Rahma", "tahun": 2020, "stok": 2 },
+  { "id": 3, "judul": "Pemrograman Web Modern", "pengarang": "Budi Santoso", "tahun": 2022, "stok": 6 },
+  { "id": 4, "judul": "JavaScript untuk Web", "pengarang": "Dewi Lestari", "tahun": 2019, "stok": 0 },
+  { "id": 5, "judul": "HTML5 & CSS3 Praktis", "pengarang": "Rudi Hartono", "tahun": 2023, "stok": 8 },
+  { "id": 6, "judul": "Algoritma & Struktur Data", "pengarang": "Agus Salim", "tahun": 2018, "stok": 3 },
+  { "id": 7, "judul": "Basis Data Relasional", "pengarang": "Nina Kurnia", "tahun": 2021, "stok": 5 },
+  { "id": 8, "judul": "Keamanan Aplikasi Web", "pengarang": "Fajar Nugraha", "tahun": 2022, "stok": 1 },
+  { "id": 9, "judul": "Responsive Web Design", "pengarang": "Lina Marlina", "tahun": 2020, "stok": 7 },
+  { "id": 10, "judul": "Pengantar Rekayasa Perangkat Lunak", "pengarang": "Hendra Gunawan", "tahun": 2017, "stok": 2 }
+]

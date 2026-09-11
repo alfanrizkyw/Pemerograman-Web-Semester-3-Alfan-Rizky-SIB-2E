@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nama": "Ahmad Fauzi", "no_anggota": "A001", "alamat": "Jl. Merdeka No. 1, Malang", "no_hp": "081234567801" },
+  { "id": 2, "nama": "Putri Ayu", "no_anggota": "A002", "alamat": "Jl. Sudirman No. 12, Malang", "no_hp": "081234567802" },
+  { "id": 3, "nama": "Bayu Pratama", "no_anggota": "A003", "alamat": "Jl. Ijen No. 5, Malang", "no_hp": "081234567803" },
+  { "id": 4, "nama": "Citra Dewi", "no_anggota": "A004", "alamat": "Jl. Kawi No. 8, Malang", "no_hp": "081234567804" },
+  { "id": 5, "nama": "Doni Setiawan", "no_anggota": "A005", "alamat": "Jl. Semeru No. 3, Malang", "no_hp": "081234567805" }
+]

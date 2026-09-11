@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMPUS-Mini | Login</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="../index.html" class="brand">SIMPUS-Mini</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">&#9776;</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="../buku/list.html">Daftar Buku</a></li>
+      <li><a href="../buku/tambah.html">Tambah Buku</a></li>
+      <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+      <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
+      <li id="navAuthItem"><a href="login.html" class="active">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Login Petugas</h1>
+
+  <form class="form-box" id="formLogin" novalidate>
+    <div class="form-group">
+      <label for="username">Email</label>
+      <input type="email" id="username" name="username" autocomplete="email" placeholder="alfan@gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password">
+    </div>
+    <div id="loginMsg"></div>
+    <button type="submit">Login</button>
+  </form>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 SIMPUS-Mini
+</footer>
+
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

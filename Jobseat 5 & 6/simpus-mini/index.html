@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMPUS-Mini | Beranda</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">SIMPUS-Mini</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">&#9776;</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="active">Beranda</a></li>
+      <li><a href="buku/list.html">Daftar Buku</a></li>
+      <li><a href="buku/tambah.html">Tambah Buku</a></li>
+      <li><a href="anggota/list.html">Daftar Anggota</a></li>
+      <li><a href="anggota/tambah.html">Tambah Anggota</a></li>
+      <li id="navAuthItem"><a href="auth/login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h1>Selamat Datang di SIMPUS-Mini</h1>
+    <p>Sistem Informasi Perpustakaan Sederhana.</p>
+
+    <div class="stat-grid">
+      <article class="card">
+        <div class="card-value" id="statBuku">0</div>
+        <div class="card-label">Total Buku</div>
+      </article>
+      <article class="card">
+        <div class="card-value" id="statAnggota">0</div>
+        <div class="card-label">Total Anggota</div>
+      </article>
+      <article class="card">
+        <div class="card-value" id="statDipinjam">0</div>
+        <div class="card-label">Total Dipinjam</div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 SIMPUS-Mini
+</footer>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

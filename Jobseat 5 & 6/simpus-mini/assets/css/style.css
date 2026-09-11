@@ -1,0 +1,255 @@
+/* =========================================================
+   SIMPUS-MINI - style.css
+   Hasil Jobsheet 2 (styling dasar) + Jobsheet 3 (responsive)
+   ========================================================= */
+
+:root {
+  --clr-primary: #2563eb;
+  --clr-primary-dark: #1e40af;
+  --clr-primary-light: #60a5fa;
+  --clr-bg: #f7fbff;
+  --clr-surface: #ffffff;
+  --clr-border: #dbeafe;
+  --clr-text: #172554;
+  --clr-muted: #64748b;
+  --clr-danger: #dc2626;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f9ff 45%, #dbeafe 100%);
+  background-attachment: fixed;
+  color: var(--clr-text);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ---------- Header / Navbar (Flexbox - Jobsheet 2) ---------- */
+header.site-header {
+  background: linear-gradient(90deg, #ffffff 0%, #f8fbff 55%, #dbeafe 100%);
+  border-bottom: 1px solid var(--clr-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+.navbar .brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--clr-primary-dark);
+  text-decoration: none;
+}
+
+.navbar .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar ul.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul.nav-menu a {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+.navbar ul.nav-menu a:hover,
+.navbar ul.nav-menu a.active {
+  color: var(--clr-primary);
+}
+
+/* ---------- Kartu statistik (CSS Grid - Jobsheet 2) ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 60%, #eaf3ff 100%);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+.card .card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+
+.card .card-label {
+  color: var(--clr-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Tabel ---------- */
+.table-wrapper { overflow-x: auto; }
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--clr-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table.data-table th,
+table.data-table td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+table.data-table th {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 60%, #60a5fa 100%);
+  color: #fff;
+}
+
+table.data-table tbody tr:nth-child(even) { background: #f8fafc; }
+table.data-table tbody tr:hover { background: #eef2ff; }
+
+/* ---------- Form ---------- */
+.form-box {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 500px;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+.form-group .error {
+  color: var(--clr-danger);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+button, .btn {
+  background: var(--clr-primary);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+button:hover, .btn:hover { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 70%, #3b82f6 100%); }
+.btn-danger { background: var(--clr-danger); }
+.btn-danger:hover { background: #b91c1c; }
+
+/* ---------- Search bar (Jobsheet 5) ---------- */
+.search-bar {
+  margin: 1rem 0;
+}
+.search-bar input {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+}
+
+/* ---------- Loading & status (Jobsheet 6) ---------- */
+.status-msg {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.status-msg.loading { background: #fef9c3; color: #854d0e; }
+.status-msg.error { background: #fee2e2; color: #991b1b; }
+
+footer.site-footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--clr-muted);
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   RESPONSIVE (Jobsheet 3) - mobile first
+   ========================================================= */
+
+/* Mobile default: hamburger menu */
+.navbar .nav-toggle { display: block; }
+
+.navbar ul.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+  flex-direction: column;
+  padding: 1rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.navbar ul.nav-menu.open { display: flex; }
+
+.stat-grid { grid-template-columns: 1fr; }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktop: full navbar, no hamburger */
+@media (min-width: 1024px) {
+  .navbar .nav-toggle { display: none; }
+  .navbar ul.nav-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    padding: 0;
+    border: none;
+  }
+}
