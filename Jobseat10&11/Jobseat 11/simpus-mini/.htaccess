@@ -1,0 +1,12 @@
+# Jobsheet 11 — hardening tingkat server (Apache / XAMPP)
+Options -Indexes
+
+# File partial (_form.php, _validasi.php) tidak boleh dibuka langsung
+<FilesMatch "^_.*\.php$">
+    Require all denied
+</FilesMatch>
+
+# Sembunyikan versi PHP
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+</IfModule>

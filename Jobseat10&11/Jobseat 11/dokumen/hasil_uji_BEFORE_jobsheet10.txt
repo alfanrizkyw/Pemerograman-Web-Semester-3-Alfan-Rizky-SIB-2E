@@ -1,0 +1,59 @@
+================ 1. SQL INJECTION ================
+[AMAN]   Login ditolak untuk payload: ' OR '1'='1
+[AMAN]   Login ditolak untuk payload: admin'--
+[AMAN]   Login ditolak untuk payload: ' OR 1=1 --
+[AMAN]   Login ditolak untuk payload: x'; DROP TABLE users;--
+[AMAN]   Login ditolak untuk payload: ' UNION SELECT 1,'a','b','c','admin'--
+[AMAN]   Tabel users masih ada setelah payload DROP TABLE
+[AMAN]   Prasyarat: login sah admin/admin123 berhasil (sesi uji valid)
+[AMAN]   Parameter id=<payload SQL> tidak merusak tabel buku
+[INFO]   GET edit.php?id=abc -> HTTP 302
+
+================ 2. XSS ================
+[AMAN]   Judul <script>alert(1)</script> tampil sebagai teks (di-escape)
+[AMAN]   Pengarang berisi <img onerror> di-escape
+[INFO]   Bukti HTML: &lt;script&gt;alert(1)&lt;/script&gt; ada di sumber halaman
+[AMAN]   Prasyarat XSS: payload <script> benar-benar tersimpan di database (uji bermakna)
+[AMAN]   Breakout atribut value="..." di form edit gagal (tanda kutip di-escape)
+[AMAN]   Prasyarat XSS: data anggota berisi tag HTML tersimpan di database
+[AMAN]   Nama & alamat anggota berisi tag HTML di-escape
+
+================ 3. CSRF ================
+[RENTAN] Buku terhapus lewat POST tanpa token (CSRF berhasil)
+[RENTAN] Buku terhapus dengan token palsu
+[RENTAN] Judul buku berubah lewat POST tanpa token (CSRF edit berhasil)
+[RENTAN] Anggota terhapus lewat POST tanpa token
+[RENTAN] User ter-logout paksa via GET /auth/logout.php (logout-CSRF)
+[AMAN]   Hapus buku dengan token sah (alur normal) tetap berfungsi
+
+================ 4. VALIDASI & SANITASI INPUT ================
+[RENTAN] Input array judul[]=x menyebabkan error fatal / kebocoran info (HTTP=500)
+[RENTAN] stok=99999999999 menyebabkan error database tak tertangani (HTTP=500)
+[AMAN]   Kategori di luar whitelist ditolak
+[AMAN]   Tahun '1e3' (notasi ilmiah) ditolak
+[RENTAN] Judul 300 karakter menyebabkan error database (HTTP 500)
+[RENTAN] Null byte (%00) menyebabkan data terpotong/korup, tersimpan: 'UJI-nul'
+[AMAN]   No. HP tidak valid ditolak
+
+================ 5. AUTENTIKASI / OTORISASI / SESSION ================
+[RENTAN] Pengunjung anonim bisa mendaftar sebagai ADMIN (privilege escalation)
+[AMAN]   Petugas (non-admin) tidak bisa menghapus anggota
+[RENTAN] Server menerima ID sesi tanam tanpa menerbitkan ID baru
+[AMAN]   Session ID berubah setelah login (fixation dicegah): fixd9ded19… -> 525v8nfq0b…
+[AMAN]   ID sesi lama (hasil fixation) tidak bisa dipakai masuk
+[RENTAN] Cookie sesi tanpa HttpOnly
+[RENTAN] Cookie sesi tanpa SameSite
+[RENTAN] Tidak ada header Content-Security-Policy
+[RENTAN] Tidak ada X-Frame-Options (rawan clickjacking)
+[RENTAN] Tidak ada X-Content-Type-Options
+[RENTAN] Akses langsung buku/_form.php menghasilkan error/HTML terpotong (HTTP=500)
+
+================ 6. REGRESI: ALUR NORMAL HARUS TETAP BERFUNGSI ================
+[AMAN]   Tambah buku (data sah, ISBN 978-602-8519-93-9) berhasil
+[AMAN]   Edit buku (data sah + token) berhasil
+[AMAN]   Tambah anggota (data sah, no HP +62...) berhasil
+[AMAN]   No. anggota duplikat -> pesan 'sudah terdaftar' (bukan error 500)
+[AMAN]   Admin yang sedang login tetap bisa membuat akun ber-role admin
+[AMAN]   Logout via tombol (POST + token) berfungsi
+
+Selesai.

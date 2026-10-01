@@ -1,0 +1,59 @@
+================ 1. SQL INJECTION ================
+[AMAN]   Login ditolak untuk payload: ' OR '1'='1
+[AMAN]   Login ditolak untuk payload: admin'--
+[AMAN]   Login ditolak untuk payload: ' OR 1=1 --
+[AMAN]   Login ditolak untuk payload: x'; DROP TABLE users;--
+[AMAN]   Login ditolak untuk payload: ' UNION SELECT 1,'a','b','c','admin'--
+[AMAN]   Tabel users masih ada setelah payload DROP TABLE
+[AMAN]   Prasyarat: login sah admin/admin123 berhasil (sesi uji valid)
+[AMAN]   Parameter id=<payload SQL> tidak merusak tabel buku
+[INFO]   GET edit.php?id=abc -> HTTP 302
+
+================ 2. XSS ================
+[AMAN]   Judul <script>alert(1)</script> tampil sebagai teks (di-escape)
+[AMAN]   Pengarang berisi <img onerror> di-escape
+[INFO]   Bukti HTML: &lt;script&gt;alert(1)&lt;/script&gt; ada di sumber halaman
+[AMAN]   Prasyarat XSS: payload <script> benar-benar tersimpan di database (uji bermakna)
+[AMAN]   Breakout atribut value="..." di form edit gagal (tanda kutip di-escape)
+[AMAN]   Prasyarat XSS: data anggota berisi tag HTML tersimpan di database
+[AMAN]   Nama & alamat anggota berisi tag HTML di-escape
+
+================ 3. CSRF ================
+[AMAN]   POST hapus buku TANPA token ditolak (data masih ada)
+[AMAN]   POST hapus dengan token PALSU ditolak
+[AMAN]   POST edit buku TANPA token ditolak (judul tidak berubah)
+[AMAN]   POST hapus anggota TANPA token ditolak
+[AMAN]   Logout via GET (<img src=logout.php>) tidak mengeluarkan user
+[AMAN]   Hapus buku dengan token sah (alur normal) tetap berfungsi
+
+================ 4. VALIDASI & SANITASI INPUT ================
+[AMAN]   Input array judul[]=x ditangani sebagai input tidak valid
+[AMAN]   stok=99999999999 ditolak validasi
+[AMAN]   Kategori di luar whitelist ditolak
+[AMAN]   Tahun '1e3' (notasi ilmiah) ditolak
+[AMAN]   Judul 300 karakter ditolak validasi panjang
+[AMAN]   Null byte (%00) dibuang oleh sanitasi, tersimpan: 'UJI-nulx'
+[AMAN]   No. HP tidak valid ditolak
+
+================ 5. AUTENTIKASI / OTORISASI / SESSION ================
+[AMAN]   Register anonim dengan role=admin dipaksa menjadi 'petugas'
+[AMAN]   Petugas (non-admin) tidak bisa menghapus anggota
+[AMAN]   Strict mode: ID sesi buatan penyerang ditolak, server menerbitkan ID baru
+[AMAN]   Session ID berubah setelah login (fixation dicegah): fix7ebfdee… -> 7e2k1nhu57…
+[AMAN]   ID sesi lama (hasil fixation) tidak bisa dipakai masuk
+[AMAN]   Cookie sesi memakai HttpOnly
+[AMAN]   Cookie sesi memakai SameSite
+[AMAN]   Header Content-Security-Policy terkirim
+[AMAN]   Header X-Frame-Options terkirim (anti-clickjacking)
+[AMAN]   Header X-Content-Type-Options: nosniff terkirim
+[AMAN]   Akses langsung buku/_form.php tidak membocorkan informasi (HTTP=403)
+
+================ 6. REGRESI: ALUR NORMAL HARUS TETAP BERFUNGSI ================
+[AMAN]   Tambah buku (data sah, ISBN 978-602-8519-93-9) berhasil
+[AMAN]   Edit buku (data sah + token) berhasil
+[AMAN]   Tambah anggota (data sah, no HP +62...) berhasil
+[AMAN]   No. anggota duplikat -> pesan 'sudah terdaftar' (bukan error 500)
+[AMAN]   Admin yang sedang login tetap bisa membuat akun ber-role admin
+[AMAN]   Logout via tombol (POST + token) berfungsi
+
+Selesai.

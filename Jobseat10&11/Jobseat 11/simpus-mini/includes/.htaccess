@@ -1,0 +1,2 @@
+# Folder includes hanya untuk di-require oleh PHP, bukan diakses browser
+Require all denied
