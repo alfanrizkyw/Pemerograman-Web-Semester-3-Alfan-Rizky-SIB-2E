@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // Kredensial: environment variable > includes/config.local.php > default lokal.
-$cfg = ['host' => 'localhost', 'port' => '5432', 'name' => 'simpus_mini', 'user' => 'postgres', 'pass' => '', 'sslmode' => 'prefer'];
+$cfg = ['host' => 'localhost', 'port' => '5432', 'name' => 'simpus_mini', 'user' => 'postgres', 'pass' => '12345678', 'sslmode' => 'prefer'];
 
 $local = __DIR__ . '/config.local.php';
 if (is_file($local)) {

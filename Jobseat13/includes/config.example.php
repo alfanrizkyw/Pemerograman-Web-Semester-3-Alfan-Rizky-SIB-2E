@@ -7,6 +7,6 @@ return [
     'port' => '5432',
     'name' => 'simpus_mini',
     'user' => 'postgres',
-    'pass' => '',
+    'pass' => '12345678',
     'sslmode' => 'prefer',
 ];

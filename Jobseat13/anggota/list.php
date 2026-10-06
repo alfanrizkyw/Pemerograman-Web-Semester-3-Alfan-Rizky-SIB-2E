@@ -32,7 +32,7 @@ $st->bindValue(':o', $pg['offset'], PDO::PARAM_INT);
 $st->execute();
 $rows = $st->fetchAll();
 
-$admin = user_role() === 'admin';
+$petugas = in_array(user_role(), ['admin', 'petugas'], true);
 $pageTitle = 'Anggota';
 $active = 'anggota';
 require __DIR__ . '/../includes/header.php';
@@ -80,7 +80,7 @@ require __DIR__ . '/../includes/header.php';
                     <div class="row-actions">
                         <a class="btn btn--sm" href="<?= e(url('peminjaman/riwayat.php?anggota_id=' . (int) $a['id'])) ?>">Riwayat</a>
                         <a class="btn btn--sm" href="<?= e(url('anggota/edit.php?id=' . (int) $a['id'])) ?>">Ubah</a>
-                        <?php if ($admin): ?>
+                        <?php if ($petugas): ?>
                         <form method="post" action="<?= e(url('anggota/hapus.php')) ?>" data-confirm="Hapus anggota <?= e($a['nama']) ?>? Tindakan ini tidak bisa dibatalkan.">
                             <?= csrf_field() ?>
                             <input type="hidden" name="id" value="<?= (int) $a['id'] ?>">

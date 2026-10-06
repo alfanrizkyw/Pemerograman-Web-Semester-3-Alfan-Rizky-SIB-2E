@@ -35,7 +35,7 @@ $nav = $masuk
 
 <header class="topbar">
     <a class="brand" href="<?= e(url('index.php')) ?>">
-        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__mark"><img src="<?= e(url('assets/img/logo.png')) ?>" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'"><span class="brand__fallback" aria-hidden="true">S</span></span>
         <span>SIMPUS-Mini</span>
     </a>
     <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="sidebar">
@@ -48,7 +48,7 @@ $nav = $masuk
 <div class="shell">
     <aside class="sidebar" id="sidebar" aria-label="Navigasi utama">
         <a class="brand brand--side" href="<?= e(url('index.php')) ?>">
-            <span class="brand__mark" aria-hidden="true">S</span>
+            <span class="brand__mark"><img src="<?= e(url('assets/img/logo.png')) ?>" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'"><span class="brand__fallback" aria-hidden="true">S</span></span>
             <span>SIMPUS-Mini<small>Perpustakaan</small></span>
         </a>
 

@@ -13,10 +13,11 @@ function user_role(): string
     return (string) ($_SESSION['role'] ?? '');
 }
 
-function require_admin(): void
+function require_petugas(): void
 {
-    if (user_role() !== 'admin') {
-        flash('error', 'Aksi ini hanya untuk admin.');
+    $role = user_role();
+    if (!in_array($role, ['admin', 'petugas'], true)) {
+        flash('error', 'Aksi ini hanya untuk petugas.');
         redirect('index.php');
     }
 }
