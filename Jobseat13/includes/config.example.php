@@ -8,4 +8,5 @@ return [
     'name' => 'simpus_mini',
     'user' => 'postgres',
     'pass' => '',
+    'sslmode' => 'prefer',
 ];

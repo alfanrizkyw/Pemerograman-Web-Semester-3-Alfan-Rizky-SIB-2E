@@ -135,3 +135,20 @@ Jangan membawa password database atau akun contoh ke deployment publik. Ganti kr
 Jobseat 1 membangun struktur HTML, Jobseat 2 styling, Jobseat 3 responsive, Jobseat 4 UX, Jobseat 5 JavaScript, Jobseat 6 fetch/JSON, Jobseat 7 PHP/session, Jobseat 8 PostgreSQL, Jobseat 9 CRUD, Jobseat 10 autentikasi, Jobseat 11 hardening keamanan, dan Jobseat 12 integrasi peminjaman/pengembalian.
 
 Dengan demikian **Jobseat13 bukan proyek baru**, melainkan produk final dari aplikasi yang sama.
+
+## Deployment — Supabase + Deplexo
+
+Production menggunakan PostgreSQL Supabase melalui **Session Pooler (port 5432)** karena aplikasi memakai PDO prepared statements. Jangan gunakan Transaction Pooler port 6543 untuk konfigurasi ini.
+
+Environment variables:
+
+- `DB_HOST` — host Session Pooler dari Supabase
+- `DB_PORT=5432`
+- `DB_NAME=postgres`
+- `DB_USER=postgres.<PROJECT_REF>`
+- `DB_PASS` — password database Supabase
+- `DB_SSLMODE=require`
+- `PORT=3000`
+- `APP_BASE_URL` — kosong jika aplikasi berada langsung di root subdomain Deplexo
+
+Deplexo menggunakan `Dockerfile` + `deplexo.yaml` yang sudah disediakan di root proyek. Credential database tidak disimpan di repository.
